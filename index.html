@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <script defer src="./script.js"></script>
+    <title>To-do App</title>
+  </head>
+  <body>
+    <h2>Todo Web App</h2>
+    <div class="container">
+      <div class="task-create">
+        <div class="create-container">
+          <input type="text" class="title" placeholder="Title" required />
+
+          <textarea
+            name="description"
+            id=""
+            class="description"
+            placeholder="Description"
+          ></textarea>
+
+          <button class="save" value="submit">Save</button>
+
+          <!-- cols="35"
+            rows="15" -->
+        </div>
+      </div>
+      <div class="tasks">
+        <div class="task-header">
+          <button class="tab all-task-tab active-tab" data-tab="1">
+            All-tasks
+          </button>
+          <button class="tab pending-tab" data-tab="3">Pending</button>
+
+          <button class="tab completed-tab" data-tab="2">Completed</button>
+        </div>
+        <!--  
+
+        -->
+        <div class="dir-head">
+          <div class="head-title">Title</div>
+          <div class="head-Description">Description</div>
+          <div class="head-status">Status</div>
+          <div class="head-cancel">X</div>
+        </div>
+        <div class="task-lists list-all-tasks" data-tab="">
+          <!-- ///// -->
+
+          <!-- <div class="task-box">
+            <div class="task-title">Title</div>
+            <div class="task-descr">Short Description</div>
+            <div class="task-status">
+              <button class="status pending">pending</button>
+            </div>
+            <div class="task-delete"><button class="del">X</button></div>
+          </div> -->
+
+          <!-- //// -->
+        </div>
+
+        <div class="task-lists list-pending none" data-tab="">
+          <div class="task-box">
+            <div class="task-title">Title</div>
+            <div class="task-descr">Short Description</div>
+            <div class="task-status">
+              <button class="status pending">pending</button>
+            </div>
+            <div class="task-delete"><button class="del">X</button></div>
+          </div>
+        </div>
+        <div class="task-lists list-completed none" data-tab="">
+          <div class="task-box">
+            <div class="task-title">Title</div>
+            <div class="task-descr">Short Description</div>
+            <div class="task-status">
+              <button class="status pending">pending</button>
+            </div>
+            <div class="task-delete"><button class="del">X</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay none">
+      <div class="modal">
+        <div class="modal-header"><h3>Task</h3></div>
+        <div class="status-cancel">
+          <button class="modal-status">Pending</button>
+
+          <button class="modal-cancel">X</button>
+        </div>
+
+        <div class="modal-title-box">Title:</div>
+        <div class="modal-description">Description:</div>
+
+        <div class="modal-complete-delete">
+          <button class="modal-complete">Complete</button>
+
+          <button class="modal-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-delete">Task Deleted</div>
+    <div class="success-complete">Task Completed</div>
+  </body>
+</html>
