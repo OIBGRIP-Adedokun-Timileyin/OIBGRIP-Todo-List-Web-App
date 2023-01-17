@@ -1,7 +1,7 @@
 body {
   position: relative;
   overflow: hidden;
-  background-image: url("./background-destination-desktop.jpg");
+  /* background-image: url("./background-destination-desktop.jpg"); */
 }
 body > h2 {
   color: white;
@@ -336,7 +336,7 @@ body > h2 {
     overflow-x: hidden;
     overflow-y: scroll;
     margin: 0;
-    background-image: url("./background-home-mobile.jpg");
+    /* background-image: url("./background-home-mobile.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     /* display: block; */
