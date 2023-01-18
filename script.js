@@ -13,6 +13,8 @@ const modalStatus = document.querySelector(".modal-status");
 
 const modalTitleBox = document.querySelector(".modal-title-box");
 
+const modalTimeBox = document.querySelector(".modal-time-box");
+
 const modalDescription = document.querySelector(".modal-description");
 
 const modalComplete = document.querySelector(".modal-complete");
@@ -60,6 +62,7 @@ class Todo {
   pendingTasks = [];
   taskID = 0;
   currentTask;
+  newDate = new Date();
 
   constructor() {
     this.valdation();
@@ -73,6 +76,17 @@ class Todo {
     this.deleteTask(listPending);
     this.completeTask();
     this.modalDel();
+  }
+
+  getFullDate() {
+    return `${this.newDate.getHours()}: ${`${this.newDate.getMinutes()}`.padStart(
+      2,
+      0
+    )} ${this.newDate.getHours() >= 12 ? "pm" : "am"}  
+   <br /> 
+    ${this.newDate.getDate()}/${
+      this.newDate.getMonth() + 1
+    }/${this.newDate.getFullYear()}`;
   }
 
   valdation() {
@@ -104,6 +118,7 @@ class Todo {
         description: app.firstLowerCase(InputDescription.value),
         id: (app.taskID += 1),
         completed: false,
+        Taskdate: app.getFullDate(),
       };
 
       console.log(app.allTasks);
@@ -155,7 +170,11 @@ class Todo {
             <div class="task-title">${this.firstLowerCase(task.title)}</div>
             <div class="task-descr">${this.firstLowerCase(
               task.description.slice(0, 20)
-            )}... 👆</div>
+            )}... 👆 <br/>
+            <br/>
+            
+             ${task.Taskdate}
+            </div>
             <div class="task-status">
               <button class="status ${
                 task.completed ? "completed" : "pending"
@@ -300,6 +319,8 @@ class Todo {
     modalStatus.innerHTML = `${obj.completed ? "completed" : "pending"}`;
 
     modalTitleBox.innerHTML = `<b>Title:</b>  ${obj.title} `;
+
+    modalTimeBox.innerHTML = `<b>Time:</b>  ${obj.Taskdate} `;
 
     modalDescription.innerHTML = `<b>Description:</b>  ${obj.description} `;
 
