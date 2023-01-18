@@ -155,11 +155,11 @@ class Todo {
             <div class="task-title">${this.firstLowerCase(task.title)}</div>
             <div class="task-descr">${this.firstLowerCase(
               task.description.slice(0, 20)
-            )}... 🔽</div>
+            )}... 👆</div>
             <div class="task-status">
               <button class="status ${
                 task.completed ? "completed" : "pending"
-              }">${task.status ? "completed" : "pending"}</button>
+              }">${task.completed ? "completed" : "pending"}</button>
             </div>
             <div class="task-delete"><button class="del">X</button></div>
           </div>
@@ -297,6 +297,7 @@ class Todo {
   expandModal(obj) {
     overlay.classList.remove("none");
     modalStatus.classList.add(`${obj.completed ? "completed" : "pending"}`);
+    modalStatus.innerHTML = `${obj.completed ? "completed" : "pending"}`;
 
     modalTitleBox.innerHTML = `<b>Title:</b>  ${obj.title} `;
 
@@ -313,6 +314,8 @@ class Todo {
       app.currentTask.completed = true;
       app.pendingTasksAdd();
       app.completedTasksAdd();
+      modalStatus.innerHTML = `Completed`;
+
       app.reloadTasks();
       app.saveData();
       console.log(app.allTasks);
